@@ -1,4 +1,4 @@
-using System;
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
    [SerializeField] Character selectedCharacter;
    [SerializeField] List<Character> characterList;
    [SerializeField] Transform atkRef;
+   [SerializeField] bool isBot;
 
    public Character SelectedCharacter { get => selectedCharacter; }
    public List<Character> CharacterList  { get => characterList; }
@@ -27,10 +28,19 @@ public class Player : MonoBehaviour
 
    public void SetPlay(bool value)
    {
-      foreach (var character in characterList)
+      if(isBot)
       {
-         character.Button.interactable = value;
+         int index = Random.Range(0,maxExclusive: characterList.Count);
+         selectedCharacter = CharacterList[index];
       }
+      else
+      {
+         foreach (var character in characterList)
+         {
+            character.Button.interactable = value;
+         }
+      }
+      
    }
 
    public void Attack()
