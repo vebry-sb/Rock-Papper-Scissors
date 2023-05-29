@@ -1,20 +1,32 @@
-//using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
    [SerializeField] Character selectedCharacter;
-   [SerializeField] List<Character> characterList;
    [SerializeField] Transform atkRef;
    [SerializeField] bool isBot;
+   [SerializeField] List<Character> characterList;
+   [SerializeField] UnityEvent onTakeDamage;
 
    public Character SelectedCharacter { get => selectedCharacter; }
    public List<Character> CharacterList  { get => characterList; }
+
+   public void Start() 
+   {
+      if(isBot)
+      {
+         foreach (var character in characterList)
+         {
+            character.Button.interactable = false;
+         }
+      }   
+   }
 
    public void Prepare()
    {
@@ -30,8 +42,18 @@ public class Player : MonoBehaviour
    {
       if(isBot)
       {
-         int index = Random.Range(0,maxExclusive: characterList.Count);
-         selectedCharacter = CharacterList[index];
+         List<Character> lotteryList = new List<Character>();
+         foreach (var character in characterList)
+         {
+            int ticket = Mathf.CeilToInt (f : ((float)character.CurrentHP / (float)character.MaxHP) *10); 
+            for (int i = 0; i < ticket; i++)
+            {
+               lotteryList.Add(item: character);
+            }
+         }
+         
+         int index = Random.Range(0,maxExclusive: lotteryList.Count);
+         selectedCharacter = lotteryList[index];
       }
       else
       {
@@ -63,6 +85,7 @@ public class Player : MonoBehaviour
       selectedCharacter.ChangeHP(amount: -damageValue);
       var spriteRend = selectedCharacter.GetComponent<SpriteRenderer>();
       spriteRend.DOColor(endValue : Color.red, 0.1f).SetLoops(6, loopType: LoopType.Yoyo);
+      onTakeDamage.Invoke();
    }
 
    public bool IsDamaging()
