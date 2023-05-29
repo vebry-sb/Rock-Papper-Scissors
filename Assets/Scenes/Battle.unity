@@ -831,6 +831,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260011194}
   m_CullTransparentMesh: 1
+--- !u!1 &264971276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264971278}
+  - component: {fileID: 264971277}
+  m_Layer: 0
+  m_Name: ' BattleManager'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &264971277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264971276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0878ecc15aac8409e16a9b89ce1c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  player1: {fileID: 1310548474}
+  player2: {fileID: 853701006}
+  isPlayer1DoneSelecting: 0
+  isPlayer2DoneSelecting: 0
+  isAttackDone: 0
+  isDamagingDone: 0
+  isReturningDone: 0
+  isPlayerEliminated: 0
+--- !u!4 &264971278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264971276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4401487, y: 0.47630453, z: -0.0017881079}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &272233761
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 272233762}
   - component: {fileID: 272233763}
+  - component: {fileID: 272233764}
   m_Layer: 0
   m_Name: Player Scissors
   m_TagString: Untagged
@@ -916,6 +970,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &272233764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272233761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b51cf5ff9b6dc479bbcb8b9074af7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  type: 2
+  currentHP: 100
+  maxHP: 100
+  attack: 25
+  overHeadText: {fileID: 951826484}
+  avatar: {fileID: 1735609422}
+  nameText: {fileID: 1897997250}
+  typeText: {fileID: 1657221356}
+  healthBar: {fileID: 983906826}
+  hpText: {fileID: 721369302}
+  button: {fileID: 1152346969}
 --- !u!1 &280823918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,6 +2085,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &542374957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542374958}
+  m_Layer: 0
+  m_Name: AtkRef
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &542374958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542374957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1310548473}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &546798944
 GameObject:
   m_ObjectHideFlags: 0
@@ -3181,6 +3290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 837972430}
   - component: {fileID: 837972431}
+  - component: {fileID: 837972432}
   m_Layer: 0
   m_Name: Enemy Rock
   m_TagString: Untagged
@@ -3256,6 +3366,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &837972432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837972429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b51cf5ff9b6dc479bbcb8b9074af7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  type: 0
+  currentHP: 100
+  maxHP: 100
+  attack: 25
+  overHeadText: {fileID: 347963918}
+  avatar: {fileID: 260011196}
+  nameText: {fileID: 485487011}
+  typeText: {fileID: 1011272823}
+  healthBar: {fileID: 919788417}
+  hpText: {fileID: 2066670264}
+  button: {fileID: 1725022121}
 --- !u!1 &841958571
 GameObject:
   m_ObjectHideFlags: 0
@@ -3332,6 +3466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 853701005}
+  - component: {fileID: 853701006}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -3355,9 +3490,28 @@ Transform:
   - {fileID: 1426462657}
   - {fileID: 1831672333}
   - {fileID: 781428172}
+  - {fileID: 1926129077}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &853701006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853701004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede711e26933a024b84e1ea2064782c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedCharacter: {fileID: 0}
+  characterList:
+  - {fileID: 837972432}
+  - {fileID: 1426462659}
+  - {fileID: 1831672335}
+  atkRef: {fileID: 1926129077}
 --- !u!1 &919788415
 GameObject:
   m_ObjectHideFlags: 0
@@ -4184,7 +4338,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1152346970}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1310548474}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SelectCharacter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 272233764}
+          m_ObjectArgumentAssemblyTypeName: Character, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1152346970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4469,7 +4635,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1177406552}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1310548474}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SelectCharacter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2114503549}
+          m_ObjectArgumentAssemblyTypeName: Character, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1177406552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4804,6 +4982,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1310548473}
+  - component: {fileID: 1310548474}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4827,9 +5006,28 @@ Transform:
   - {fileID: 2114503547}
   - {fileID: 272233762}
   - {fileID: 1613014582}
+  - {fileID: 542374958}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1310548474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310548472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede711e26933a024b84e1ea2064782c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedCharacter: {fileID: 0}
+  characterList:
+  - {fileID: 1999795284}
+  - {fileID: 2114503549}
+  - {fileID: 272233764}
+  atkRef: {fileID: 542374958}
 --- !u!1 &1311235296
 GameObject:
   m_ObjectHideFlags: 0
@@ -5397,6 +5595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1426462657}
   - component: {fileID: 1426462658}
+  - component: {fileID: 1426462659}
   m_Layer: 0
   m_Name: Enemy Papper
   m_TagString: Untagged
@@ -5472,6 +5671,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1426462659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426462656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b51cf5ff9b6dc479bbcb8b9074af7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  type: 1
+  currentHP: 100
+  maxHP: 100
+  attack: 25
+  overHeadText: {fileID: 1363421008}
+  avatar: {fileID: 726454205}
+  nameText: {fileID: 1199137937}
+  typeText: {fileID: 1521559371}
+  healthBar: {fileID: 1383720351}
+  hpText: {fileID: 747992358}
+  button: {fileID: 1950703736}
 --- !u!1 &1521559369
 GameObject:
   m_ObjectHideFlags: 0
@@ -6159,7 +6382,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1725022122}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 853701006}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SelectCharacter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 837972432}
+          m_ObjectArgumentAssemblyTypeName: Character, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1725022122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6385,7 +6620,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1772880869}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1310548474}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SelectCharacter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1999795284}
+          m_ObjectArgumentAssemblyTypeName: Character, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1772880869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6471,6 +6718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831672333}
   - component: {fileID: 1831672334}
+  - component: {fileID: 1831672335}
   m_Layer: 0
   m_Name: Enemy Scissors
   m_TagString: Untagged
@@ -6546,6 +6794,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1831672335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831672332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b51cf5ff9b6dc479bbcb8b9074af7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  type: 2
+  currentHP: 100
+  maxHP: 100
+  attack: 25
+  overHeadText: {fileID: 1311235298}
+  avatar: {fileID: 631990062}
+  nameText: {fileID: 186425810}
+  typeText: {fileID: 302324856}
+  healthBar: {fileID: 1253734235}
+  hpText: {fileID: 1154403779}
+  button: {fileID: 1904941407}
 --- !u!1 &1877483727
 GameObject:
   m_ObjectHideFlags: 0
@@ -6969,7 +7241,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1904941408}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 853701006}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SelectCharacter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1831672335}
+          m_ObjectArgumentAssemblyTypeName: Character, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1904941408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7084,6 +7368,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918099482}
   m_CullTransparentMesh: 1
+--- !u!1 &1926129076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1926129077}
+  m_Layer: 0
+  m_Name: Atkref
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1926129077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926129076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 853701005}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1939190740
 GameObject:
   m_ObjectHideFlags: 0
@@ -7296,7 +7611,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1950703737}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 853701006}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SelectCharacter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1426462659}
+          m_ObjectArgumentAssemblyTypeName: Character, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1950703737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7556,6 +7883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1999795282}
   - component: {fileID: 1999795283}
+  - component: {fileID: 1999795284}
   m_Layer: 0
   m_Name: Player Rock
   m_TagString: Untagged
@@ -7631,6 +7959,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1999795284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999795281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b51cf5ff9b6dc479bbcb8b9074af7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  type: 0
+  currentHP: 100
+  maxHP: 100
+  attack: 25
+  overHeadText: {fileID: 378204094}
+  avatar: {fileID: 2026029993}
+  nameText: {fileID: 1984952794}
+  typeText: {fileID: 1408782592}
+  healthBar: {fileID: 1918099484}
+  hpText: {fileID: 779724088}
+  button: {fileID: 1772880868}
 --- !u!1 &2022981364
 GameObject:
   m_ObjectHideFlags: 0
@@ -8100,6 +8452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2114503547}
   - component: {fileID: 2114503548}
+  - component: {fileID: 2114503549}
   m_Layer: 0
   m_Name: Player Papper
   m_TagString: Untagged
@@ -8175,3 +8528,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2114503549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114503546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b51cf5ff9b6dc479bbcb8b9074af7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  type: 1
+  currentHP: 100
+  maxHP: 100
+  attack: 25
+  overHeadText: {fileID: 36394512}
+  avatar: {fileID: 1266773552}
+  nameText: {fileID: 626496135}
+  typeText: {fileID: 2101165026}
+  healthBar: {fileID: 2031367368}
+  hpText: {fileID: 74975531}
+  button: {fileID: 1177406551}
