@@ -863,10 +863,6 @@ MonoBehaviour:
   state: 0
   player1: {fileID: 1310548474}
   player2: {fileID: 853701006}
-  isPlayer1DoneSelecting: 0
-  isPlayer2DoneSelecting: 0
-  isAttackDone: 0
-  isDamagingDone: 0
   isReturningDone: 0
   isPlayerEliminated: 0
 --- !u!4 &264971278
@@ -986,7 +982,7 @@ MonoBehaviour:
   type: 2
   currentHP: 100
   maxHP: 100
-  attack: 25
+  attackPower: 20
   overHeadText: {fileID: 951826484}
   avatar: {fileID: 1735609422}
   nameText: {fileID: 1897997250}
@@ -3382,7 +3378,7 @@ MonoBehaviour:
   type: 0
   currentHP: 100
   maxHP: 100
-  attack: 25
+  attackPower: 20
   overHeadText: {fileID: 347963918}
   avatar: {fileID: 260011196}
   nameText: {fileID: 485487011}
@@ -5687,7 +5683,7 @@ MonoBehaviour:
   type: 1
   currentHP: 100
   maxHP: 100
-  attack: 25
+  attackPower: 20
   overHeadText: {fileID: 1363421008}
   avatar: {fileID: 726454205}
   nameText: {fileID: 1199137937}
@@ -6810,7 +6806,7 @@ MonoBehaviour:
   type: 2
   currentHP: 100
   maxHP: 100
-  attack: 25
+  attackPower: 20
   overHeadText: {fileID: 1311235298}
   avatar: {fileID: 631990062}
   nameText: {fileID: 186425810}
@@ -7975,7 +7971,7 @@ MonoBehaviour:
   type: 0
   currentHP: 100
   maxHP: 100
-  attack: 25
+  attackPower: 20
   overHeadText: {fileID: 378204094}
   avatar: {fileID: 2026029993}
   nameText: {fileID: 1984952794}
@@ -8544,7 +8540,7 @@ MonoBehaviour:
   type: 1
   currentHP: 100
   maxHP: 100
-  attack: 25
+  attackPower: 20
   overHeadText: {fileID: 36394512}
   avatar: {fileID: 1266773552}
   nameText: {fileID: 626496135}

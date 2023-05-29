@@ -5,6 +5,6 @@ using UnityEngine;
 public enum CharacterType
 {
     Rock,
-    papper,
+    Paper,
     Scissors,
 }

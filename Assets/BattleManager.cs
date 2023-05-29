@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,6 @@ public class BattleManager : MonoBehaviour
     [SerializeField] Player player2;
 
     //Temporary
-    [SerializeField] bool isPlayer1DoneSelecting;
-    [SerializeField] bool isPlayer2DoneSelecting;
-    [SerializeField] bool isAttackDone;
-    [SerializeField] bool isDamagingDone;
     [SerializeField] bool isReturningDone;
     [SerializeField] bool isPlayerEliminated;
     
@@ -26,7 +23,6 @@ public class BattleManager : MonoBehaviour
         Damaging,
         Returning,
         BattleOver
-
     }
 
     void Update()
@@ -55,6 +51,7 @@ public class BattleManager : MonoBehaviour
             case State.Player2Select:
                 if (player2.SelectedCharacter != null)
                 {
+                    player2.SetPlay(false);
                     player1.Attack();
                     player2.Attack();
                     state = State.Attacking;
@@ -65,16 +62,38 @@ public class BattleManager : MonoBehaviour
             case State.Attacking:
                 if (player1.IsAttacking() == false && player2.IsAttacking() == false)
                 {
-                    // calculate who take damages
-                    // start damage animation
+                    CalculateBattle(player1, player2, out Player winner, out Player loser);
+
+                    if(loser == null)
+                    {
+                        player1.TakeDamage(damageValue: player2.SelectedCharacter.AttackPower);
+                        player2.TakeDamage(damageValue: player1.SelectedCharacter.AttackPower);
+                    }
+                    else
+                    {
+                        loser.TakeDamage(damageValue: winner.SelectedCharacter.AttackPower);
+                    }
+
+                    if(player1.SelectedCharacter.CurrentHP == 0)
+                    {
+                        player1.Remove(character: player1.SelectedCharacter);
+                    }
+                    
+                     if(player2.SelectedCharacter.CurrentHP == 0)
+                    {
+                        player2.Remove(character: player2.SelectedCharacter);
+                    }
+                    
+
                     state = State.Damaging;
 
                 }
                 break;
 
             case State.Damaging:
-                if (isDamagingDone)
+                if (player1.IsDamaging() == false && player2.IsDamaging() == false )
                 {
+                    //animasi return
                     state = State.Returning;
                 }
                 break;
@@ -91,6 +110,60 @@ public class BattleManager : MonoBehaviour
 
             case State.BattleOver:
                 break;
+        }
+    }
+
+    private void CalculateBattle(Player player1, Player player2, out Player winner, out Player loser)
+    {
+        var type1 = player1.SelectedCharacter.Type;
+        var type2 = player2.SelectedCharacter.Type;
+
+        //Rock vs Paper
+        if(type1 == CharacterType.Rock && type2 == CharacterType.Paper)
+        {
+            winner = player2;
+            loser = player1;
+        }
+
+        //Rock vs Scissors
+        else if(type1 == CharacterType.Rock && type2 == CharacterType.Scissors)
+        {
+            winner = player1;
+            loser = player2;
+        }
+
+        //Paper vs Rock
+        else if(type1 == CharacterType.Paper && type2 == CharacterType.Rock)
+        {
+            winner = player1;
+            loser = player2;
+        }
+
+        //Paper vs Scissors
+        else if(type1 == CharacterType.Paper && type2 == CharacterType.Scissors)
+        {
+            winner = player2;
+            loser = player1;
+        }
+
+        //Scissors vs Rock
+        else if(type1 == CharacterType.Scissors && type2 == CharacterType.Rock)
+        {
+            winner = player2;
+            loser = player1;
+        }
+
+        //Scissors vs Paper
+        else if(type1 == CharacterType.Scissors && type2 == CharacterType.Paper)
+        {
+            winner = player1;
+            loser = player2;
+        }
+
+        else
+        {
+            winner = null;
+            loser = null;
         }
     }
 }

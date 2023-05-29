@@ -34,11 +34,36 @@ public class Player : MonoBehaviour
 
    public void Attack()
    {
-      selectedCharacter.transform.DOMove(endValue: atkRef.position, 1f, true).SetEase(ease: Ease.InOutBounce);
+      selectedCharacter.transform
+         .DOMove(endValue: atkRef.position, 1f, true)
+         .SetEase(ease: Ease.InOutBounce); //Bisa dihapus
    }
 
    public bool IsAttacking()
    {
-      return true;
+         return DOTween.IsTweening(targetOrId:selectedCharacter.transform);
+   }
+
+   public void TakeDamage(int damageValue)
+   {
+      selectedCharacter.ChangeHP(amount: -damageValue);
+      var spriteRend = selectedCharacter.GetComponent<SpriteRenderer>();
+      spriteRend.DOColor(endValue : Color.red, 0.1f).SetLoops(6, loopType: LoopType.Yoyo);
+   }
+
+   public bool IsDamaging()
+   {
+      var spriteRend = selectedCharacter.GetComponent<SpriteRenderer>();
+      return DOTween.IsTweening(targetOrId: spriteRend);
+   }
+
+   public void Remove(Character character)
+   {
+      if(characterList.Contains(item: character) == false) 
+         return;    
+
+      character.Button.interactable = false;
+      character.gameObject.SetActive(false);
+      characterList.Remove(item: character);
    }
 }
