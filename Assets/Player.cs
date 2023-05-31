@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
       var spriteRend = selectedCharacter.GetComponent<SpriteRenderer>();
       spriteRend.DOColor(endValue : Color.red, 0.1f).SetLoops(6, loopType: LoopType.Yoyo);
       onTakeDamage.Invoke();
+
    }
 
    public bool IsDamaging()
